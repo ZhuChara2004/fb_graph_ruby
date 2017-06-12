@@ -10,7 +10,7 @@ module FbGraphRuby
     end
 
     def self.send_message(fb_id, payload, access_token)
-      uri = "https://graph.facebook.com/v2.9/me/messages"
+      uri = 'https://graph.facebook.com/v2.9/me/messages'
       query = { access_token: access_token }
       headers = { 'Content-Type' => 'application/json' }
       body = {
@@ -19,6 +19,5 @@ module FbGraphRuby
       }.to_json
       HTTParty.post(uri, query: query, headers: headers, body: body).parsed_response
     end
-
   end
 end
