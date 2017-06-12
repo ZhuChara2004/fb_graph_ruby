@@ -22,7 +22,50 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```fb_id``` user messenger ID, it can be read from FB webhook payload. It can be unique for each page.
+
+```access_token``` should be generated on FB page.
+
+```payload``` structured FB [send API](https://developers.facebook.com/docs/messenger-platform/send-api-reference) message.
+
+### Getting User Profile
+```ruby
+FbGraphRuby::Messenger.get_profile(fb_id, access_token)
+```
+
+returnes hash:
+
+```ruby
+{
+    "first_name"=>"Dmitry", 
+    "last_name"=>"Zhuk", 
+    "locale"=>"en_US", 
+    "timezone"=>3, 
+    "gender"=>"male"
+}
+```
+
+### Sending message
+
+```ruby
+payload = {
+  text: 'Test message'
+}
+
+FbGraphRuby::Messenger.send_message(fb_id, payload, access_token)
+```
+
+Response if success:
+```json
+{ 
+  "recipient_id": "1275407512508344", 
+  "message_id": "mid.$cAALz5ZrPXlpizaEUaFcnFvLxPQof"
+}
+```
+
+
+
+
 
 ## Development
 
