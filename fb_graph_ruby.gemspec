@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['zhuchara@gmail.com']
 
   spec.summary       = 'Facebook Graph for messenger Ruby Implementation'
-  spec.description   = 'Main purpose of this library is a support of multiople facebook pages connection'
+  spec.description   = 'Main purpose of this library is a support of multiple facebook pages connection for chatbots.'
   spec.homepage      = 'https://github.com/ZhuChara2004/fb_graph_ruby'
   spec.license       = 'MIT'
 
