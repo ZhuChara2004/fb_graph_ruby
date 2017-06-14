@@ -40,6 +40,19 @@ module FbGraphRuby
       HTTParty.post(uri, query: query, headers: headers, body: body).parsed_response
     end
 
+    def self.send_quick_reply(fb_id, text, quick_replies, access_token)
+      uri = 'https://graph.facebook.com/v2.9/me/messages'
+      query = { access_token: access_token }
+      headers = { 'Content-Type' => 'application/json' }
+      body = {
+          recipient: { id: fb_id },
+          message: {
+              text: text,
+              quick_replies: quick_replies
+          }
+      }.to_json
+      HTTParty.post(uri, query: query, headers: headers, body: body).parsed_response
+    end
   end
 
 end
