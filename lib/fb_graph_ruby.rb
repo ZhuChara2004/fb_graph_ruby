@@ -85,6 +85,11 @@ module FbGraphRuby
       HTTParty.get(uri, query: query).parsed_response
     end
 
+    def self.get_groups(fb_id, access_token)
+      uri = "https://graph.facebook.com/v2.9/#{fb_id}/groups"
+      query = { fields: 'id', access_token: access_token }
+      HTTParty.get(uri, query: query).parsed_response
+    end
   end
 
 end
