@@ -67,6 +67,12 @@ module FbGraphRuby
       HTTParty.post(uri, query: query, headers: headers, body: body).parsed_response
     end
 
+    def self.get_friends(fb_id, access_token)
+      uri = "https://graph.facebook.com/v2.9/#{fb_id}/friends"
+      query = { fields: 'data,paging,summary', access_token: access_token }
+      HTTParty.get(uri, query: query).parsed_response
+    end
+
 
   end
 
