@@ -102,6 +102,12 @@ module FbGraphRuby
       query = {fields: 'email', access_token: access_token}
       HTTParty.get(uri, query: query).parsed_response
     end
+
+    def self.get_shared_links(fb_id, access_token)
+      uri = "https://graph.facebook.com/v2.9/#{fb_id}/feed"
+      query = { fields: 'link', access_token: access_token }
+      HTTParty.get(uri, query: query).parsed_response
+    end
   end
 
 end
