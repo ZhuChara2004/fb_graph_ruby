@@ -53,6 +53,21 @@ module FbGraphRuby
       }.to_json
       HTTParty.post(uri, query: query, headers: headers, body: body).parsed_response
     end
+
+    # actions: mark_seen, typing_on, typing_off
+    # typing indicators are automatically turned off after 20 seconds
+    def self.sender_actions(fb_id, action, access_token)
+      uri = 'https://graph.facebook.com/v2.9/me/messages'
+      query = { access_token: access_token }
+      headers = { 'Content-Type' => 'application/json' }
+      body = {
+          recipiend: { id: fb_id },
+          sender_action: action
+      }
+      HTTParty.post(uri, query: query, headers: headers, body: body).parsed_response
+    end
+
+
   end
 
 end
